@@ -3,6 +3,7 @@ package com.zermeno.isaac.evidencia2;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -121,4 +122,8 @@ public class Main2Activity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }}
+    }
+    SQLiteDatabase db = DB_HELPER.getReadableDatabase();
+
+
+}

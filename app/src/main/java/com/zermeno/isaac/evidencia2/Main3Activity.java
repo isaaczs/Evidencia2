@@ -1,6 +1,7 @@
 package com.zermeno.isaac.evidencia2;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,6 +27,8 @@ public class Main3Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.outputGenero)).setText(u.genero);
 
     }
+    SQLiteDatabase db = DB_HELPER.getWritableDatabase();
+
 
     //MENU
     @Override

@@ -36,7 +36,7 @@ public class UsersContract {
             "DROP TABLE IF EXISTS " + UsersEntry.TABLE_NAME;
 
 
-    SQL_DB_HELPER DB_HELPER = new SQL_DB_HELPER(getContext());
+    //SQL_DB_HELPER DB_HELPER = new SQL_DB_HELPER(getContext());
 
     public class SQL_DB_HELPER extends SQLiteOpenHelper {
         public static final int DATABASE_VERSION = 1;
@@ -56,24 +56,27 @@ public class UsersContract {
         public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             onUpgrade(db, oldVersion, newVersion);
         }
+
+        //SQLiteDatabase db = DB_HELPER.getWritableDatabase();
+        public void insertCurp(Usuarios user){
+            ContentValues values = new ContentValues();
+                    values.put(UsersEntry.Column_Nombre, user.nombre);
+                    values.put(UsersEntry.Column_pApellido, user.pApellido);
+                    values.put(UsersEntry.Column_sApellido, user.sApellido);
+                    values.put(UsersEntry.Column_nFecha, user.nFecha);
+                    values.put(UsersEntry.Column_Estado, user.estado;
+                    values.put(UsersEntry.Column_Genero, user.genero);
+        }
     }
 
-    SQLiteDatabase db = DB_HELPER.getWritableDatabase();
 
-    ContentValues values = new ContentValues();
-    values.put(UsersEntry.Column_Nombre, Nombre);
-    values.put(UsersEntry.Column_pApellido, Primer_apellido);
-    values.put(UsersEntry.Column_sApellido, Segundo_apellido);
-    values.put(UsersEntry.Column_nFecha, Fecha_de_Nacimiento);
-    values.put(UsersEntry.Column_Estado, Estado);
-    values.put(UsersEntry.Column_Genero, Genero);
 
     long Column_ID = db.insert(UsersEntry.TABLE_NAME, null, values);
 
 
 
 
-    SQLiteDatabase db = DB_HELPER.getReadableDatabase();
+    //SQLiteDatabase db = DB_HELPER.getReadableDatabase();
 
     String [] projection = {
             BaseColumns._ID,
@@ -140,7 +143,7 @@ public class UsersContract {
         DB_HELPER.close();
         super.onDestroy();
     }
-    )
+
 
 
 
